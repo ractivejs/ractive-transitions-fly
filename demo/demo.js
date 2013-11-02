@@ -70,9 +70,12 @@
 	template = deindent( q( '#demo-template' ).innerHTML );
 	code = deindent( q( '#demo-code' ).innerHTML );
 
+	console.log( 'template', template );
+	console.log( 'code', code );
+
 	// insert demo code into the page
-	q( '#demo-template-view' ).innerText = template;
-	q( '#demo-code-view' ).innerText = code;
+	q( '#demo-template-view' ).textContent = template;
+	q( '#demo-code-view' ).textContent = code;
 
 	// activate prettify.js
 	prettyPrint();
