@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang='en-GB'>
+<head>
+	<meta charset='utf-8'>
+	<title>Ractive-transitions-fly</title>
+
+	<!-- CSS -->
+	<link href='http://fonts.googleapis.com/css?family=Voltaire' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='demo/main.css'>
+	<link rel='stylesheet' href='demo/prettyprint.css'>
+
+	<style type='text/css'>
+		#demo {
+			position: relative;
+			overflow: hidden;
+			height: 16em;
+		}
+
+		#demo button {
+			position: absolute;
+			left: 50%;
+			bottom: 3em;
+			-webkit-transform: translate(-50%,0);
+			-moz-transform: translate(-50%,0);
+			-ms-transform: translate(-50%,0);
+			-o-transform: translate(-50%,0);
+			transform: translate(-50%,0);
+		}
+
+		#demo p {
+			text-align: center;
+			font-size: 2em;
+			margin: 0;
+			line-height: 1.2;
+			padding: 0.5em 0 0 0;
+		}
+
+		#demo span, #demo strong {
+			display: inline-block;
+		}
+
+		#demo strong {
+			font-family: 'Voltaire';
+			font-weight: normal;
+			font-size: 1.4em;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- if the project is on GitHub, add a fork me button! -->
+	<a class='forkme' href='https://github.com/you/repo'>Fork me on GitHub</a>
+
+	<header>
+		<h1>Ractive-transitions-fly</h1>
+		<span>find more plugins at <a href='http://ractivejs.org/plugins'>ractivejs.org/plugins</a></span>
+	</header>
+
+	<main>
+		<p>This transition uses CSS transforms to 'fly' elements to their natural location on the page, fading in from transparent as they go. By default, they will fly in from left.</p>
+
+		<p>You can change the starting (or ending, if it's an outro) <code>x</code> and <code>y</code> properties, as shown below &ndash; by default these values are assumed to be pixel values, but you can equally use any CSS length (such as <code>%</code> or <code>em</code> values).</p>
+
+		<p>The <code>delay</code>, <code>duration</code> and <code>easing</code> values are also yours to play with, and behave as you'd expect. The <code>duration</code> property is in milliseconds, and <code>easing</code> should be a valid CSS easing property, such as those generated from <a href='http://cubic-bezier.com/'>cubic-bezier.com</a>.</p>
+
+		<p>In browsers that do not support CSS transforms (i.e. IE8 and below), elements will simply fade in or out.</p>
+
+		<div id='demo'></div>
+
+		<pre id='demo-template-view' class='prettyprint lang-html'></pre>
+		<pre id='demo-code-view' class='prettyprint lang-js'></pre>
+	</main>
+
+	<!-- add additional info such as your homepage here, if you want -->
+	<footer>
+		<p>Copyright &copy; 2013 Rich Harris. Licensed MIT</p>
+	</footer>
+
+	<!-- Demo template -->
+	<script id='demo-template' type='text/ractive'>
+		{{#shown}}
+			<button intro='fly:{
+				"x":"-50%",
+				"y":-200,
+				"easing":"cubic-bezier(.17,.67,.25,1.5)",
+				"delay":1000
+			}' on-tap='repeat'>show me again!</button>
+		
+			<p>
+				<span intro='fly'>things</span> <!-- using default options -->
+				<strong intro='fly:{"x":100,"y":100,"duration":800}'>flying</strong>
+				<span intro='fly:{"x":300,"y":-40}'>in</span>
+				<span intro='fly:{"x":150,"y":40}'>from</span>
+				<span intro='fly:{"x":-20,"y":200}'>all</span>
+				<span intro='fly:{"x":-200,"y":-200,"delay":500}'>over</span>
+				<span intro='fly:{"x":-100,"y":100}'>the</span>
+				<span intro='fly:{"x":200,"y":-80}'>place!</span>
+			</p>
+		{{/shown}}
+	</script>
+
+	<!-- Dependencies -->
+	<script src='lib/Ractive-legacy.js'></script>
+	<script src='src/Ractive-transitions-fly.js'></script>
+
+	<!-- Demo code -->
+	<script id='demo-code'>
+		ractive = new Ractive({
+			el: 'demo',
+			template: '#demo-template',
+			data: { shown: true }
+		});
+
+		ractive.on( 'repeat', function () {
+			this.set( 'shown', false, function () {
+				this.set( 'shown', true );
+			});
+		});
+	</script>
+
+	<!-- Insert code into the page -->
+	<script src='demo/prettify.js'></script>
+	<script src='demo/demo.js'></script>
+</body>
+</html>
