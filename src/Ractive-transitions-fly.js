@@ -5,7 +5,9 @@
 
 	Version <%= VERSION %>.
 
-	<< description goes here... >>
+	This transition uses CSS transforms to 'fly' elements to their
+	natural location on the page, fading in from transparent as they go.
+	By default, they will fly in from left.
 
 	==========================
 
@@ -26,7 +28,8 @@
 	    // the return value
 	    require( 'Ractive-transitions-fly' );
 
-	<< more specific instructions for this plugin go here... >>
+	You can adjust the following parameters: `x`, `y`, `duration`,
+	`delay` and `easing`.
 
 */
 

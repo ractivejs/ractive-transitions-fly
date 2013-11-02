@@ -3,7 +3,9 @@ Ractive.js fly transition plugin
 
 *Find more Ractive.js plugins at [ractivejs.org/plugins](http://ractivejs.org/plugins)*
 
-This transition flys an element in and out of view, using CSS transitions where possible.
+This transition uses CSS transforms to 'fly' elements to their natural location on the page, fading in from transparent as they go. By default, they will fly in from left.
+
+[See the demo here.](http://ractivejs.github.io/Ractive-transitions-fly/)
 
 Usage
 -----
