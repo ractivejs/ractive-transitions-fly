@@ -5,7 +5,9 @@
 
 	Version 0.1.0.
 
-	<< description goes here... >>
+	This transition uses CSS transforms to 'fly' elements to their
+	natural location on the page, fading in from transparent as they go.
+	By default, they will fly in from left.
 
 	==========================
 
@@ -26,7 +28,8 @@
 	    // the return value
 	    require( 'Ractive-transitions-fly' );
 
-	<< more specific instructions for this plugin go here... >>
+	You can adjust the following parameters: `x`, `y`, `duration`,
+	`delay` and `easing`.
 
 */
 
@@ -57,35 +60,41 @@
 
 	'use strict';
 
-	var fly, defaults;
+	var fly, addPx, defaults;
 
 	defaults = {
 		duration: 400,
-		easing: 'easeInOut',
+		easing: 'easeOut',
 		opacity: 0,
 		x: -500,
 		y: 0
 	};
 
+	addPx = function ( num ) {
+		if ( num === 0 || typeof num === 'string' ) {
+			return num;
+		}
+
+		return num + 'px';
+	};
+
 	fly = function ( t ) {
-		var offscreen, target, currentOpacity;
+		var x, y, offscreen, target;
+
+		x = addPx( t.x !== undefined ? t.x : defaults.x );
+		y = addPx( t.y !== undefined ? t.y : defaults.y );
 
 		offscreen = {
-			transform: 'translate(' + ( t.x || defaults.x ) + 'px,' + ( t.y || defaults.y ) + 'px)',
+			transform: 'translate(' + x + ',' + y + ')',
 			opacity: 0
 		};
 
 		if ( t.isIntro ) {
-			currentOpacity = t.getStyle( 'opacity' );
+			// animate to the current style
+			target = t.getStyle([ 'opacity', 'transform' ]);
 
-			console.log( 'currentOpacity: "%s"', currentOpacity );
-
+			// set offscreen style
 			t.setStyle( offscreen );
-			
-			target = {
-				transform: 'translate(0,0)',
-				opacity: currentOpacity
-			};
 		} else {
 			target = offscreen;
 		}
