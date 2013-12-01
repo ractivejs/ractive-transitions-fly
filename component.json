@@ -1,0 +1,16 @@
+{
+  "name": "ractive-transitions-fly",
+  "repo": "RactiveJS/Ractive-transitions-fly",
+  "description": "Ractive-transitions-fly",
+  "version": "0.1.0",
+  "keywords": [],
+  "dependencies": {
+    "brett-shwom/Ractive": "0.3.8pre-legacy"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "Ractive-transitions-fly.js",
+  "scripts": [
+    "Ractive-transitions-fly.js"
+  ]
+}
