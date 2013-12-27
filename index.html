@@ -83,28 +83,30 @@
 	<script id='demo-template' type='text/ractive'>
 		{{#shown}}
 			<button intro='fly:{
-				"x":"-50%",
-				"y":-200,
-				"easing":"cubic-bezier(.17,.67,.25,1.5)",
-				"delay":1000
+				x: "-50%",
+				y: -200,
+				easing: "cubic-bezier(.17,.67,.25,1.5)",
+				delay: 1000
 			}' on-tap='repeat'>show me again!</button>
-		
-			<p outro='fade:{"delay":400}'>
+
+			<p outro='fade:{delay:400}'>
 				<span intro='fly'>things</span> <!-- using default options -->
-				<strong intro='fly:{"x":100,"y":100,"duration":800}'
-				        outro='fly:{"x":0,"y":-200,"duration":600}'>flying</strong>
-				<span intro='fly:{"x":300,"y":-40}'>in</span>
-				<span intro='fly:{"x":150,"y":40}'>from</span>
-				<span intro='fly:{"x":-20,"y":200}'>all</span>
-				<span intro='fly:{"x":-200,"y":-200,"delay":500}'>over</span>
-				<span intro='fly:{"x":-100,"y":100}'>the</span>
-				<span intro='fly:{"x":200,"y":-80}'>place!</span>
+				<strong intro='fly:{x:100,y:100,duration:800}'
+				        outro='fly:{x:0,y:-200,duration:600}'>flying</strong>
+				<span intro='fly:{x:300,y:-40}'>in</span>
+				<span intro='fly:{x:150,y:40}'>from</span>
+				<span intro='fly:{x:-20,y:200}'>all</span>
+				<span intro='fly:{x:-200,y:-200,delay:500}'>over</span>
+				<span intro='fly:{x:-100,y:100}'>the</span>
+				<span intro='fly:{x:200,y:-80}'>place!</span>
 			</p>
 		{{/shown}}
 	</script>
 
 	<!-- Dependencies -->
 	<script src='lib/Ractive-legacy.js'></script>
+	<script src='lib/Ractive-events-tap.js'></script>
+	<script src='lib/Ractive-transitions-fade.js'></script>
 	<script src='Ractive-transitions-fly.js'></script>
 
 	<!-- Demo code -->

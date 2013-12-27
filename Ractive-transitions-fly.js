@@ -3,7 +3,7 @@
 	Ractive-transitions-fly
 	=======================
 
-	Version 0.1.0.
+	Version 0.1.1.
 
 	This transition uses CSS transforms to 'fly' elements to their
 	natural location on the page, fading in from transparent as they go.
@@ -78,11 +78,13 @@
 		return num + 'px';
 	};
 
-	fly = function ( t ) {
+	fly = function ( t, params ) {
 		var x, y, offscreen, target;
 
-		x = addPx( t.x !== undefined ? t.x : defaults.x );
-		y = addPx( t.y !== undefined ? t.y : defaults.y );
+		params = t.processParams( params, defaults );
+
+		x = addPx( params.x );
+		y = addPx( params.y );
 
 		offscreen = {
 			transform: 'translate(' + x + ',' + y + ')',
@@ -99,16 +101,7 @@
 			target = offscreen;
 		}
 
-		// set defaults
-		if ( t.duration === undefined ) {
-			t.duration = defaults.duration;
-		}
-
-		if ( t.easing === undefined ) {
-			t.easing = defaults.easing;
-		}
-
-		t.animateStyle( target );
+		t.animateStyle( target, params, t.complete );
 	};
 
 	Ractive.transitions.fly = fly;
