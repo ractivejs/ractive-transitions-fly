@@ -1,16 +1,16 @@
 {
 	"name": "ractive-transitions-fly",
-	"repo": "RactiveJS/Ractive-transitions-fly",
-	"description": "Ractive-transitions-fly",
-	"version": "0.1.1",
+	"repo": "ractivejs/ractive-transitions-fly",
+	"description": "Fly transition plugin for Ractive.js",
+	"version": "0.1.2",
 	"keywords": [],
 	"dependencies": {
-		"RactiveJS/Ractive": "0.3.9"
+		"ractivejs/ractive": "~0.4.0"
 	},
 	"development": {},
 	"license": "MIT",
-	"main": "Ractive-transitions-fly.js",
+	"main": "ractive-transitions-fly.js",
 	"scripts": [
-		"Ractive-transitions-fly.js"
+		"ractive-transitions-fly.js"
 	]
 }
