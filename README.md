@@ -7,22 +7,31 @@ This transition uses CSS transforms to 'fly' elements to their natural location 
 
 [See the demo here.](http://ractivejs.github.io/Ractive-transitions-fly/)
 
+
 Usage
 -----
 
 Include this file on your page below Ractive, e.g:
 
 ```html
-<script src='lib/Ractive.js'></script>
-<script src='lib/Ractive-transitions-fly.js'></script>
+<script src='lib/ractive.js'></script>
+<script src='lib/ractive-transitions-fly.js'></script>
 ```
 
 Or, if you're using a module loader, require this module:
 
 ```js
 // requiring the plugin will 'activate' it - no need to use the return value
-require( 'Ractive-transitions-fly' );
+require( 'ractive-transitions-fly' );
 ```
+
+To get `ractive-transitions-fly.min.js` you can:
+
+- Use CDN: `//cdn.jsdelivr.net/ractive.transitions-fly/latest/ractive-transitions-fly.min.js`.
+- Use bower: `$ bower i ractive-transitions-fly`.
+- [Download the latest release](https://github.com/ractivejs/ractive-transitions-fly/releases).
+- Clone the repo: `$ git clone https://github.com/ractivejs/ractive-transitions-fly.git`.
+
 
 You can specify the `x` and `y` positions to fly in from (or out to), using the conventional syntax:
 
