@@ -1,9 +1,9 @@
 /*
 
-	Ractive-transitions-fly
+	ractive-transitions-fly
 	=======================
 
-	Version 0.1.2.
+	Version 0.1.3.
 
 	This transition uses CSS transforms to 'fly' elements to their
 	natural location on the page, fading in from transparent as they go.
@@ -53,7 +53,7 @@
 	}
 
 	else {
-		throw new Error( 'Could not find Ractive! It must be loaded before the Ractive-transitions-fly plugin' );
+		throw new Error( 'Could not find Ractive! It must be loaded before the ractive-transitions-fly plugin' );
 	}
 
 }( typeof window !== 'undefined' ? window : this, function ( Ractive ) {

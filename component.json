@@ -2,10 +2,10 @@
 	"name": "ractive-transitions-fly",
 	"repo": "ractivejs/ractive-transitions-fly",
 	"description": "Fly transition plugin for Ractive.js",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"keywords": [],
 	"dependencies": {
-		"ractivejs/ractive": "~0.4.0"
+		"ractivejs/ractive": "^0.5.8"
 	},
 	"development": {},
 	"license": "MIT",
