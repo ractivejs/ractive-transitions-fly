@@ -1,29 +1,14 @@
 {
 	"name": "ractive-transitions-fly",
-	"version": "0.1.3",
+	"version": "0.2.0-edge",
 	"author": "Rich Harris",
-	"main": "ractive-transitions-fly.js",
-	"dependencies": {
-		"ractive": "^0.5.8"
-	},
-	"devDependencies": {
-		"ractive-events-tap": "~0.1.1",
-		"ractive-transitions-fade": "~0.1.2"
-	},
+	"main": "dist/ractive-transitions-fly.js",
 	"ignore": [
-		".git/",
 		".*",
-		"demo/",
-		"grunt/",
-		"lib/",
-		"scripts/",
-		"src/",
-		"test/",
-		".gitignore",
 		"*.json",
-		"Gruntfile.js",
-		"index.html",
-		"ractive-transitions-fly.min.js",
-		"README.md"
+		"node_modules",
+		"demo",
+		"scripts",
+		"test"
 	]
 }
