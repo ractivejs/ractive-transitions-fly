@@ -1,20 +1,22 @@
 {
-	"name": "ractive-transitions-fly",
-	"version": "0.1.3",
-	"author": {
-		"name": "Rich Harris"
-	},
-	"main": "ractive-transitions-fly.js",
-	"description": "Fly transition plugin for Ractive.js",
-	"dependencies": {
-		"ractive": "^0.5.8"
-	},
-	"devDependencies": {
-		"grunt": "~0.4.1",
-		"grunt-contrib-concat": "~0.3.0",
-		"grunt-contrib-qunit": "~0.3.0",
-		"grunt-contrib-uglify": "~0.2.5",
-		"grunt-contrib-jshint": "~0.7.0",
-		"grunt-contrib-copy": "~0.4.1"
-	}
+  "name": "ractive-transitions-fly",
+  "version": "0.2.0",
+  "author": {
+    "name": "Rich Harris"
+  },
+  "main": "dist/ractive-transitions-fly.js",
+  "jsnext:main": "src/ractive-transitions-slide.js",
+  "description": "Fly transition plugin for Ractive.js",
+  "license": "MIT",
+  "repository": "https://github.com/ractivejs/ractive-transitions-slide",
+  "devDependencies": {
+    "gobble": "^0.7.9",
+    "gobble-babel": "^4.0.1",
+    "gobble-cli": "^0.3.5",
+    "gobble-esperanto-bundle": "^0.1.7"
+  },
+  "scripts": {
+    "build": "rm -rf dist; gobble build dist",
+    "prepublish": "npm run build"
+  }
 }

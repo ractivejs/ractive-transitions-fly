@@ -1,37 +1,100 @@
-Ractive.js fly transition plugin
-================================
+# ractive-transitions-fly
 
 *Find more Ractive.js plugins at [ractivejs.org/plugins](http://ractivejs.org/plugins)*
 
 This transition uses CSS transforms to 'fly' elements to their natural location on the page, fading in from transparent as they go. By default, they will fly in from left.
 
-[See the demo here.](http://ractivejs.github.io/Ractive-transitions-fly/)
+```html
+{{#if visible}}
+  <div intro-outro='fly'>
+    this will fly in and out of view
+    depending on the value of `visible`
+  </div>
+{{/if}}
+```
 
+## Installation
 
-Usage
------
+Install from npm...
 
-Include this file on your page below Ractive, e.g:
+```bash
+npm install ractive-transitions-fly
+```
+
+...or download it and add it as a script tag to your page:
 
 ```html
-<script src='lib/ractive.js'></script>
-<script src='lib/ractive-transitions-fly.js'></script>
+<script src='ractive.js'></script> <!-- must go first! -->
+<script src='ractive-transitions-fly.js'></script>
 ```
 
-Or, if you're using a module loader, require this module:
+## Use as a module...
+
+**Note: previous versions of this plugin would 'self-register'. If you are using a module system such as Browserify, Webpack or RequireJS, that's no longer the case - you must explicitly register the plugin.
+
+
+### CommonJS
 
 ```js
-// requiring the plugin will 'activate' it - no need to use the return value
-require( 'ractive-transitions-fly' );
+var Ractive = require( 'ractive' );
+
+// To use the fly transition with a specific instance
+var ractive = new Ractive({
+  el: 'body',
+  template: myTemplate,
+  transitions: {
+    fly: require( 'ractive-transitions-fly' )
+  }
+});
+
+// To use it with components
+MyComponent = Ractive.extend({
+  template: componentTemplate,
+  transitions: {
+    fly: require( 'ractive-transitions-fly' )
+  }
+});
+
+// To make it globally available to *all* instances
+Ractive.transitions.fly = require( 'ractive-transitions-fly' );
 ```
 
-To get `ractive-transitions-fly.min.js` you can:
 
-- Use CDN: `//cdn.jsdelivr.net/ractive.transitions-fly/latest/ractive-transitions-fly.min.js`.
-- Use bower: `$ bower i ractive-transitions-fly`.
-- [Download the latest release](https://github.com/ractivejs/ractive-transitions-fly/releases).
-- Clone the repo: `$ git clone https://github.com/ractivejs/ractive-transitions-fly.git`.
+### AMD
 
+```js
+define([ 'ractive', 'ractive-transitions-fly' ], function ( Ractive, fly ) {
+  var ractive = new Ractive({
+    el: 'body',
+    template: myTemplate,
+    transitions: {
+      fly: fly
+    }
+  });
+});
+```
+
+
+### ES6
+
+```js
+import Ractive from 'ractive';
+
+var ractive = new Ractive({
+  el: 'body',
+  template: myTemplate,
+  transitions: { fly }
+});
+```
+
+
+## Use as a `<script>` tag
+
+If you include ractive-transitions-fly as a script tag, it will 'self-register' with the global `Ractive` object, and all Ractive instances will be able to use it.
+
+
+
+## Parameters
 
 You can specify the `x` and `y` positions to fly in from (or out to), using the conventional syntax:
 
@@ -43,9 +106,6 @@ You can also specify the `delay`, `duration` and `easing` properties. Both `dela
 
 
 
-License
--------
+## License
 
-Copyright (c) 2013 Rich Harris. Licensed MIT.
-
-Created with the [Ractive.js plugin template](https://github.com/RactiveJS/Plugin-template) for Grunt.
+Copyright (c) 2013-15 Rich Harris. Licensed MIT.
