@@ -15,17 +15,17 @@ function addPx ( num ) {
 }
 
 export default function fly ( t, params ) {
-	var x, y, offscreen, target;
-
 	params = t.processParams( params, DEFAULTS );
 
-	x = addPx( params.x );
-	y = addPx( params.y );
+	const x = addPx( params.x );
+	const y = addPx( params.y );
 
-	offscreen = {
-		transform: 'translate(' + x + ',' + y + ')',
+	const offscreen = {
+		transform: `translate(${x},${y})`,
 		opacity: 0
 	};
+
+	let target;
 
 	if ( t.isIntro ) {
 		// animate to the current style
