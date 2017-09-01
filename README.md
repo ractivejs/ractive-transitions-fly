@@ -15,7 +15,13 @@ This transition uses CSS transforms to 'fly' elements to their natural location 
 
 ## Installation
 
-Install from npm...
+Include it from CDN...
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/ractive@0.9.3/ractive.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ractive-transitions-fly@0.3.0/dist/ractive-transitions-fly.umd.min.js"></script>
+```
+...or install from npm...
 
 ```bash
 npm install ractive-transitions-fly
